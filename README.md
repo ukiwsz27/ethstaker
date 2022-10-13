@@ -11,10 +11,10 @@ For pull requests and change requests please visit: [https://github.com/Buttaa/e
 * [ ] staking glossary (see [https://kb.beaconcha.in/glossary](https://kb.beaconcha.in/glossary))&#x20;
 * [ ] staking hardware requirements
 * [ ] explain-deposit-process
-* [ ] explain-rewards
+* [x] explain-rewards
 * [ ] explain-missed-attestations
 * [ ] explain-mev
-* [ ] explain-randomness
+* [x] explain-randomness
 * [ ] explain-checkpoint-sync
 * [ ] explain-port-forwarding
 * [ ] explain-testnets
@@ -27,5 +27,5 @@ For pull requests and change requests please visit: [https://github.com/Buttaa/e
 * [ ] explain-ram-check
 * [ ] link-mev-relays
 * [ ] link-mev-relays-registration-check
-* [ ] link-candle
+* [x] link-candle
 
