@@ -1,12 +1,13 @@
 # Table of contents
 
 * [Ethstaker Knowledge Base](README.md)
+* [Staking Glossary](staking-glossary.md)
 * [FAQ](faq.md)
 
 ## 💰 Rewards
 
-* [Proposal frequency](rewards/proposal-frequency.md)
-* [Chain Rewards](rewards/chain-rewards.md)
+* [Proposal frequency](proposal-frequency.md)
+* [Chain Rewards](chain-rewards.md)
 
 ## 💻 Hardware & Software
 
