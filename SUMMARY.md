@@ -19,4 +19,4 @@
 
 ## 📕 Tutorials
 
-* [Page 1](tutorials/page-1.md)
+* [TBD](tutorials/tbd.md)
