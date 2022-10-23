@@ -2,6 +2,8 @@
 
 #### The Ethstaker knowledgebase, a public collection of important information and concepts about Ethereum staking.
 
+https://ethstaker.gitbook.io/ethstaker-knowledge-base/
+
 For pull requests and change requests please visit: [https://github.com/Buttaa/ethstaker](https://github.com/Buttaa/ethstaker)
 
 
