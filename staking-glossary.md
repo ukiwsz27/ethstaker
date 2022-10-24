@@ -32,6 +32,7 @@
 - [Slasher node](#slasher-node)
 - [Slot](#slot)
 - [Source vote](#source-vote)
+- [Staking Deposit CLI](#staking-deposit-cli)
 - [Sync committee](#sync-committee)
 - [Target vote](#target-vote)
 - [Validator](#validator)
@@ -211,6 +212,10 @@ A time period of **12 seconds** in which a randomly chosen validator has time to
 
 The validator has made a timely vote for the correct source [checkpoint](#checkpoint).
 
+## Staking Deposit CLI
+
+TODO
+
 ## Sync committee
 
 A sync committee is a randomly selected group of [validators](#validator) that refresh every ~27 hours. Their purpose is to add their [signatures](#signing) to valid block headers. Sync committees allow [light clients](#light-clients) to keep track of the head of the blockchain without needing to access the entire validator set.
@@ -298,4 +303,4 @@ Exiting validators works in the same way, with the amount of validators that can
 
 ## Withdrawal address
 
-An address that can be optionally set when creating a validator key that will be used to withdraw staked ETH. If this address is not set at the time of key creation it can be set at the time of withdrawal instead. For more information on possible reasons for not setting the withdrawal address on key creation, [see our FAQ answer](faq.md#should-i-set-a-withdrawal-address-when-setting-up-my-solo-staking-validator).
+An address that can be optionally set when creating a validator key that will be used to withdraw staked ETH. If this address is not set at the time of key creation it can be set at the time of withdrawal instead. For more information about setting the withdrawal address on key creation, [see our FAQ answer](faq.md#should-i-set-a-withdrawal-address-when-setting-up-my-solo-staking-validator).

@@ -2,9 +2,9 @@
 
 - [Can I withdraw my ETH at any time?](#can-i-withdraw-my-eth-at-any-time)
 - [I proposed a block! What did I earn?](#i-proposed-a-block-what-did-i-earn)
+- [Should I set a withdrawal address when setting up my solo staking validator?](#should-i-set-a-withdrawal-address-when-setting-up-my-solo-staking-validator)
 - [What happens if I lose my validator keys?](#what-happens-if-i-lose-my-validator-keys)
 - [What happens if I lose my validator seed phrase / mnemonic?](#what-happens-if-i-lose-my-validator-seed-phrase--mnemonic)
-- [Should I set a withdrawal address when setting up my solo staking validator?](#should-i-set-a-withdrawal-address-when-setting-up-my-solo-staking-validator)
 
 ---
 
@@ -22,6 +22,25 @@ Validators that participate in securing the [beacon chain](staking-glossary.md#b
 
 See a detailed explanation here: [How does my validator earn ETH?](rewards/chain-rewards.md)
 
+## Should I set a withdrawal address when setting up my solo staking validator?
+
+Setting a withdrawal address when creating your validator keys can be useful as you won't need to set it again when withdrawals are enabled.
+
+The [Staking Deposit CLI](staking-glossary.md#staking-deposit-cli) can set a withdrawal address during deposit json creation. If a user opts not to do this - usually simply by omission - then it sets the hash of the withdrawal pub key instead. Sometime in the future - possibly with Shanghai/Capella hard fork - there will be a tool that takes the mnemonic and signs a message to effect a one-time change from v0 credentials - withdrawal key - to v1 credentials: Withdrawal address.
+
+And that’s it. Once your validator uses v1 credentials the withdrawal address is fixed and can’t be changed. In the current design, skimming is automatic, and so are full withdrawals: Full withdrawal just happens after exit is completed.
+
+A tool to export the withdrawal key will likely not be created, and it’d also not be very useful. You need the withdrawal key at most twice:
+
+- Once to generate the signing key (only if no withdrawal address was set at that time).
+- Once more to sign a message to set one.
+
+In both cases the key can be generated inside the CLI tool, be used for its purpose, and then be discarded again without ever being written to disk.
+
+However, there are some cases to be aware of that make it beneficial to **not** set a withdrawal address at the start:
+
+- If you plan to migrate your validator to a pool e.g. (Rocketpool) in the future, then you won't be able to perform this migration if you set a [withdrawal address](staking-glossary.md#withdrawal-address) when you created your validator keys. You would have to wait for withdrawals to be enabled, potentially wait in the withdrawal queue, then re-stake your ETH, potentially waiting in the activation queue as well!
+
 ## What happens if I lose my validator keys?
 
 If there's a catastrophic failure of your validator and you lose your validator keys, don't panic! These can be easily recovered as long as you still have your [validator seed phrase / mnemonic](staking-glossary.md#validator-seed-phrase). Simply follow the same steps you used when you first generated your validator keys, and install them on a new validator machine.
@@ -30,10 +49,4 @@ If there's a catastrophic failure of your validator and you lose your validator 
 
 ## What happens if I lose my validator seed phrase / mnemonic?
 
-If you lose your seed phrase, the one used to generate the validator keys, then unfortunately your ETH and stake is unrecoverable.
-
-## Should I set a withdrawal address when setting up my solo staking validator?
-
-Setting a withdrawal address when creating your validator keys can be useful as you won't need to set it again when withdrawals are enabled. However, there are some cases to be aware of that make it beneficial to **not** set a withdrawal address at the start:
-
-- If you plan to migrate your validator to a pool e.g. (Rocketpool) in the future, then you won't be able to perform this migration if you set a [withdrawal address](staking-glossary.md#withdrawal-address) when you created your validator. You would have to wait for withdrawals to be enabled, potentially wait in the withdrawal queue, then re-stake your ETH, potentially waiting in the activation queue as well!
+If you lose your seed phrase, the one used to generate the validator keys, then unfortunately your staked ETH is unrecoverable.
