@@ -2,21 +2,21 @@
 
 Staking is the act of depositing 32 ETH to activate validator software. As a validator you’ll be responsible for storing data, processing transactions, and adding new blocks to the blockchain. This will keep Ethereum secure for everyone and earn you new ETH in the process.
 
-## Earn rewards
+## 💰Earn rewards
 
 Rewards are given for actions that help the network reach consensus. You'll get rewards for running software that properly batches transactions into new blocks and checks the work of other validators because that's what keeps the chain running securely.
 
-## Better security
+## 🔒 Better security
 
 The network gets stronger against attacks as more ETH is staked, as it then requires more ETH to control a majority of the network. To become a threat, you would need to hold the majority of validators, which means you'd need to control the majority of ETH in the system–that's a lot!
 
-## More sustainable
+## 🌿 More sustainable
 
 Stakers don't need energy-intensive computers to participate in a Proof of Stake (PoS) system - just a home computer or (in future) a smartphone. This will make Ethereum better for the environment.
 
 ## How to stake your ETH
 
-### Solo home staking
+### 🏡 Solo home staking
 
 - Most impactful
 - Full control
@@ -27,7 +27,7 @@ Solo staking on Ethereum is the **gold standard** for staking. It provides full 
 
 Those considering solo staking should have at least 32 ETH and a dedicated computer connected to the internet ~24/7. Some technical know-how is helpful, but easy-to-use tools now exist to help simplify this process.
 
-### Staking as a service
+### ☁️ Staking as a service
 
 - Your 32 ETH
 - Your validator keys
@@ -39,7 +39,7 @@ These options usually walk you through creating a set of validator credentials, 
 
 This method of staking requires a certain level of trust in the provider. To limit counter-party risk, the keys to withdrawal your ETH are usually kept in your possession.
 
-### Pooled staking
+### 🪺 Pooled staking
 
 - Stake any amount
 - Earn rewards
@@ -54,7 +54,7 @@ Liquid staking enables easy and anytime exiting and makes staking as simple as a
 
 Pooled staking is not native to the Ethereum network. Third parties are building these solutions, and they carry their own risks.
 
-### Centralized exchanges
+### 🏢 Centralized exchanges
 
 - Least impactful
 - Highest trust assumptions
