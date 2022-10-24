@@ -17,6 +17,6 @@ description: Test description
 
 ## Can I get involved with EthStaker?
 
-[This](staking-glossary.md) is a living documentation site, which means we need help from the community to maintain and update the content. Any contribution, from writing whole sections, translations, to simply correcting spelling and grammar mistakes will be greatly appreciated.
+[This](staking-glossary.md) is a living documentation site, which means we need help from the community to maintain and [update](getting-started/what-is-ethereum-staking.md) the content. Any contribution, from writing whole sections, translations, to simply correcting spelling and grammar mistakes will be greatly appreciated.
 
 To suggest changes or add new content please visit our [EthStaker Github ↗](how-to-contribute.md).
