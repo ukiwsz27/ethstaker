@@ -10,7 +10,7 @@
 - [Running a node without any ETH](getting-started/ethereum-node.md)
 - [Solo staking - Risks & rewards](getting-started/solo-staking-risks-rewards.md)
 - [Solo staking vs pooled staking](getting-started/pooled-staking.md)
-- [Deposit process](getting-started/deposit-process.md)
+- [Deposit process explained](getting-started/deposit-process.md)
 - [Ready? Start staking!](getting-started/start-staking.md)
 
 ## 🚨 Help!
@@ -18,6 +18,7 @@
 - [Common errors and mistakes](help/common-errors-mistakes.md)
 - [My validator is offline! What do I do?](help/validator-offline.md)
 - [I'm worried about downtime 😔](help/downtime-explained.md)
+- [I'm worried about slashing 🔪](help/slashing-explained.md)
 
 ## 💰 Rewards
 

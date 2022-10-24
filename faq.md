@@ -49,4 +49,6 @@ If there's a catastrophic failure of your validator and you lose your validator 
 
 ## What happens if I lose my validator seed phrase / mnemonic?
 
-If you lose your seed phrase, the one used to generate the validator keys, then unfortunately your staked ETH is unrecoverable.
+If you lose your seed phrase, the one used to generate the validator keys, then unfortunately your staked ETH is most likely unrecoverable.
+
+However, if you had set a withdrawal address, then the validator keys are enough to sign a voluntary-exit, which causes a withdrawal to that address. There is also a special case if you have a pre-signed voluntary-exit message, but that's likely only used by staking services and only noted here for completeness.
