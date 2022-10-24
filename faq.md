@@ -1,11 +1,12 @@
 # FAQ <!-- omit in toc -->
 
-- [I proposed a block! What did I earn?](#i-proposed-a-block-what-did-i-earn)
-- [What happens if I lose my validator seed phrase / mnemonic?](#what-happens-if-i-lose-my-validator-seed-phrase--mnemonic)
-- [What happens if I lose my validator keys?](#what-happens-if-i-lose-my-validator-keys)
 - [Can I withdraw my ETH at any time?](#can-i-withdraw-my-eth-at-any-time)
+- [I proposed a block! What did I earn?](#i-proposed-a-block-what-did-i-earn)
+- [What happens if I lose my validator keys?](#what-happens-if-i-lose-my-validator-keys)
+- [What happens if I lose my validator seed phrase / mnemonic?](#what-happens-if-i-lose-my-validator-seed-phrase--mnemonic)
 
 ---
+
 ## Can I withdraw my ETH at any time?
 
 Withdrawals are not currently enabled on the [beacon chain](staking-glossary.md#beacon-chain). This means that any ETH deposited will be locked in the staking contract until a future time (expected to be in 2023 but this time frame is an estimate) when an upgrade to the network allows withdrawals.
@@ -13,6 +14,7 @@ Withdrawals are not currently enabled on the [beacon chain](staking-glossary.md#
 If your validator proposes a block, then some of those rewards are immediately available to you in the form of [priority fees](rewards/chain-rewards.md#priority-fees) and [MEV](rewards/chain-rewards.md#mev) (if you are using an [MEV-Boost](validator-clients/mev-boost.md) relay).
 
 In future, when withdrawals have been enabled, you will be able to withdraw your ETH by exiting your validator and waiting in the [withdrawal queue](staking-glossary.md#validator-queue).
+
 ## I proposed a block! What did I earn?
 
 Validators that participate in securing the [beacon chain](staking-glossary.md#beacon-chain) and execute "duties" get rewarded for this by new issuance of ETH. In addition, validators receive priority fees paid by users, and optionally MEV, Maximal Extractable Value.
@@ -28,4 +30,3 @@ If there's a catastrophic failure of your validator and you lose your validator 
 ## What happens if I lose my validator seed phrase / mnemonic?
 
 If you lose your seed phrase, the one used to generate the validator keys, then unfortunately your ETH and stake is unrecoverable.
-

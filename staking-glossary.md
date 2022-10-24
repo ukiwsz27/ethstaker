@@ -19,7 +19,7 @@
   - [Finality issues](#finality-issues)
 - [Fork](#fork)
 - [Head vote](#head-vote)
-- [Validator Seed Phrase / Mnemonic](#validator-seed-phrase--mnemonic)
+- [Inactivity leak](#inactivity-leak)
 - [Input Data](#input-data)
 - [Justification](#justification)
 - [Light clients](#light-clients)
@@ -38,15 +38,17 @@
   - [Eligible for activation & Estimated activation](#eligible-for-activation--estimated-activation)
   - [Unique index](#unique-index)
   - [Current balance & Effective balance](#current-balance--effective-balance)
+- [Validator Seed Phrase / Mnemonic](#validator-seed-phrase--mnemonic)
 - [Validator lifecycle](#validator-lifecycle)
-  - [1. Deposited](#1-deposited)
-  - [2. Pending](#2-pending)
-  - [3. Active Validator](#3-active-validator)
-  - [4. Slashing Validator](#4-slashing-validator)
-  - [5. Exiting Validator](#5-exiting-validator)
+    - [1. Deposited](#1-deposited)
+    - [2. Pending](#2-pending)
+    - [3. Active Validator](#3-active-validator)
+    - [4. Slashing Validator](#4-slashing-validator)
+    - [5. Exiting Validator](#5-exiting-validator)
 - [Validator queue](#validator-queue)
 
 ---
+
 ## Attestation
 
 Votes by [validators](#validator) which confirm the validity of a [block](#block). At designated times, each validator is responsible for publishing different attestations that formally declare a validator's current view of the chain, including the last finalized [checkpoint](#checkpoints) and the current [head of the chain](#chain-head).
@@ -144,6 +146,10 @@ A change in protocol causing the creation of an alternative chain or a temporal 
 
 The validator has made a timely vote for the correct [head block](#chain-head).
 
+## Inactivity leak
+
+If the Beacon Chain has gone more than four [epochs](#epoch) without [finalizing](#finalization), an emergency protocol called the "inactivity leak" is activated. The ultimate aim of the inactivity leak is to create the conditions required for the chain to recover finality. Finality requires a 2/3 majority of the total staked ether to agree on source and target checkpoints. If validators representing more than 1/3 of the total validators go offline or fail to submit correct [attestations](#attestation) then it is not possible for a 2/3 supermajority to finalize checkpoints. The inactivity leak lets the stake belonging to the inactive validators gradually bleed away until they control less than 1/3 of the total stake, allowing the remaining active validators finalize the chain. However large the pool of inactive validators, the remaining active validators will eventually control >2/3 of the stake. The loss of stake is a strong incentive for inactive validators to reactivate as soon as possible!
+
 ## Input Data
 
 The Input data, also called the **deposit data**, is a user generated, 842 long sequence of characters. It represents the [validator public key](validator-keys.md) and the [withdrawal public key](validator-keys.md), which were signed with by the validator private key. The input data needs to be added to the transaction to the [deposit contract](getting-started/deposit-process.md) in order to get identified by the [beacon-chain](#beacon-chain).
@@ -176,7 +182,11 @@ Demonstrating cryptographically that a message or transaction was approved by th
 
 ## Slashable offenses
 
-There three ways a validator can be slashed, all of which amount to the dishonest proposal or attestation of blocks.
+If your validator commits a slashable offense it will be force exited from the validator pool and will have ETH deducted depending on the circumstances of the event. Typically, this will be 1-2 ETH but could be [significantly more ↗](https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/rewards-and-penalties/#slashing).
+
+This is not something to be overly worried about, there are [simple steps](help/slashing-explained.md) you can take to make sure that you don't invoke a slashing event.
+
+There are three ways a validator can be slashed, all of which amount to the dishonest proposal or attestation of blocks.
 
 ### Attestation violation
 
