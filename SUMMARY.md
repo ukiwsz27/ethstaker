@@ -6,10 +6,11 @@
 
 ## 🚀 Getting Started
 
+- [Can I run a node without any ETH? (Yes!)](getting-started/ethereum-node.md)
 - [What is Ethereum staking?](getting-started/what-is-ethereum-staking.md)
 - [Solo staking - What are the risks/rewards?](getting-started/solo-staking-risks-rewards.md)
-- [I have 32 ETH - Let's start staking!](faq.md)
-- [I don't have 32 ETH - Can I still stake? (YES!)](faq.md)
+- [I have 32 ETH - Let's start staking!](tutorials/solo-staking-guides.md)
+- [I have less than 32 ETH - Can I still stake? (Yes!)](getting-started/pooled-staking.md)
 
 ## 🚨 Help!
 
@@ -21,18 +22,18 @@
 ## 💰 Rewards
 
 - [How does my validator earn ETH?](rewards/chain-rewards.md)
--
+- [When can I withdraw my validator rewards?](faq.md#withdrawals)
 - [Block proposal frequency](rewards/proposal-frequency.md)
--
+- [I proposed a block! What did I earn?](rewards/chain-rewards.md)
 
 ## 💻 Hardware
 
 - [Hardware requirements](hardware/hardware-requirements.md)
 - [Hardware security](hardware/hardware-security.md)
 
-## 💿 Software
+## 💿 Validator Clients
 
-- [Software summary](software/software-summary.md)
+- [Validator Clients Explained](software/software-summary.md)
 - [Execution clients](software/execution-clients.md)
 - [Consensus clients](software/consensus-clients.md)
 
@@ -40,8 +41,8 @@
 
 - [Secure key generation](validator-keys/secure-key-generation.md)
 - [Key management](validator-keys/key-management.md)
-- [What happens if I lose my validator keys?](faq.md>)
-- [What happens if I lose my seed phrase?](faq.md>)
+- [What happens if I lose my validator keys?](faq.md)
+- [What happens if I lose my seed phrase?](faq.md)
 
 ## 📕 Tutorials
 
