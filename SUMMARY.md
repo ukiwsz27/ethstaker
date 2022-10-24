@@ -3,8 +3,6 @@
 - [EthStaker knowledge base](README.md)
 - [Staking glossary](staking-glossary.md)
 - [FAQ](faq.md)
-- [FAQ2](faq.md)
-- [FAQ3](faq.md)
 
 ## 🚀 Getting Started
 
@@ -46,3 +44,5 @@
 
 - [Solo staking guide](tutorials/solo-staking-guides.md)
 - [Safely migrating validator keys](tutorials/validator-key-migration.md)
+- <a href="https://google.com/" target="_blank">Google</a>
+- <a href="faq.md" target="_blank">FAQ2</a>
