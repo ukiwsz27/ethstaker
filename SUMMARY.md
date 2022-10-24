@@ -43,7 +43,5 @@
 ## 📕 Tutorials
 
 * [Safely migrating validator keys](tutorials/validator-key-migration.md)
-
-***
-
+* [FAQ Test](faq.md)
 * [test link](https://app.gitbook.com/s/Ie9CspVNxMOy8D1a3lBy/faq#withdrawals)
