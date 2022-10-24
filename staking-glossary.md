@@ -19,6 +19,7 @@
   - [Finality issues](#finality-issues)
 - [Fork](#fork)
 - [Head vote](#head-vote)
+- [Validator Seed Phrase / Mnemonic](#validator-seed-phrase--mnemonic)
 - [Input Data](#input-data)
 - [Justification](#justification)
 - [Light clients](#light-clients)
@@ -38,11 +39,11 @@
   - [Unique index](#unique-index)
   - [Current balance & Effective balance](#current-balance--effective-balance)
 - [Validator lifecycle](#validator-lifecycle)
-    - [1. Deposited](#1-deposited)
-    - [2. Pending](#2-pending)
-    - [3. Active Validator](#3-active-validator)
-    - [4. Slashing Validator](#4-slashing-validator)
-    - [5. Exiting Validator](#5-exiting-validator)
+  - [1. Deposited](#1-deposited)
+  - [2. Pending](#2-pending)
+  - [3. Active Validator](#3-active-validator)
+  - [4. Slashing Validator](#4-slashing-validator)
+  - [5. Exiting Validator](#5-exiting-validator)
 - [Validator queue](#validator-queue)
 
 ---
@@ -231,6 +232,10 @@ Here are examples on how the effective balance changes:
 - If the Current balance dropped from 22 ETH to 21.76 ETH – Effective balance will be **22.00 ETH**.
 - If the Current balance increases to 22.25 **and** the effective balance is 21 ETH, the effective balance will increase to 22 ETH.
 
+## Validator Seed Phrase / Mnemonic
+
+The Seed Phrase or Mnemonic is a set of words (usually 12, 18 or 24 words long) used to generate your validator keys. Your mnemonic is the backup for your validator keys and will be the ONLY way to withdraw your ETH when the time comes and no one can help you recover your mnemonic if you lose it.
+
 ## Validator lifecycle
 
 #### 1. Deposited
@@ -267,7 +272,7 @@ The Validator has been malicious and will be slashed and kicked out of the syste
 
 ## Validator queue
 
-The validator queue is a first-in-first-out queue for activating validators to the [Beacon Chain](#beacon-chain).
+The validator queue is a first-in-first-out queue for activating and exiting validators on the [Beacon Chain](#beacon-chain).
 
 - Until 327680 active validators in the network, 4 validators can be activated per [epoch](#epoch). For every (4 \* 16384) = **65536** active validators, the validator **activation rate** goes up by one.
 - 5 validators per epoch requires 327680 active validators which translates to 1125 validators per day.
@@ -277,3 +282,5 @@ The validator queue is a first-in-first-out queue for activating validators to t
 - 9 validators per epoch requires 589824 active validators which translates to 2025 validators per day.
 - 10 validators per epoch requires 655360 active validators which translates to 2200 validators per day.
 - Amount of activations scales with the amount of active validators and the limit is the active validator set divided by 64.
+
+Exiting validators works in the same way, with the amount of validators that can exit the Beacon Chain per day rate limited to preserve the stability of the network.

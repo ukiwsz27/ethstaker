@@ -34,6 +34,7 @@
 - [Validator clients explained](validator-clients/validator-clients-explained.md)
 - [Execution clients](validator-clients/execution-clients.md)
 - [Consensus clients](validator-clients/consensus-clients.md)
+- [MEV boost](validator-clients/mev-boost.md)
 
 ## 🔑 Validator Keys
 
