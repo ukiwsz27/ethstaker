@@ -3,6 +3,8 @@
 - [EthStaker knowledge base](README.md)
 - [Staking glossary](staking-glossary.md)
 - [FAQ](faq.md)
+- [FAQ2](faq.md)
+- [FAQ3](faq.md)
 
 ## 🚀 Getting Started
 
