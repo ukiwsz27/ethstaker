@@ -43,3 +43,4 @@
 ## 📕 Tutorials
 
 - [Safely migrating validator keys](tutorials/validator-key-migration.md)
+- [I have 32 ETH - Let's start staking!](tutorials/solo-staking-guides.md)
