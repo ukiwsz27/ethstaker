@@ -31,7 +31,7 @@
 - [Hardware requirements](hardware/hardware-requirements.md)
 - [Hardware security](hardware/hardware-security.md)
 
-## 💿 Validator Clients
+## ⛓️ Validator Clients
 
 - [Validator Clients Explained](software/software-summary.md)
 - [Execution clients](software/execution-clients.md)
