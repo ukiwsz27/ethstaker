@@ -1,7 +1,6 @@
 # Table of Contents
 
-<!-- - [Getting started](README.md) -->
-
+- [EthStaker Knowledge Base](README.md)
 - [Staking glossary](staking-glossary.md)
 - [FAQ](faq.md)
 - [Withdrawals - When can I unstake?](faq.md#withdrawals)
