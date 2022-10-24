@@ -45,7 +45,3 @@
 - [Safely migrating validator keys](tutorials/validator-key-migration.md)
 - [FAQ Test](faq.md)
 - [test link](https://app.gitbook.com/s/Ie9CspVNxMOy8D1a3lBy/faq#withdrawals)
-- [FAQ Test 2](faq.md)
-- [FAQ 3](faq.md)
-- [FAQ 4](faq.md#withdrawals)
-- [FAQ 5](faq#withdrawals)
