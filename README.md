@@ -1,7 +1,3 @@
----
-layout: landing
----
-
 # EthStaker knowledge base
 
 ## Welcome to the EthStaker Knowledge base!
