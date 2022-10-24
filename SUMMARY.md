@@ -45,4 +45,4 @@
 - [Solo staking guide](tutorials/solo-staking-guides.md)
 - [Safely migrating validator keys](tutorials/validator-key-migration.md)
 - <a href="https://google.com/">Google</a>
-- <a href="/faq.md">FAQ3</a>
+- <a href="tutorials/validator-key-migration.md">migration test</a>
