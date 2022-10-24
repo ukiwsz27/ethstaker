@@ -9,6 +9,9 @@
 - [What is Ethereum staking?](getting-started/what-is-ethereum-staking.md)
 - [Running a node without any ETH](getting-started/ethereum-node.md)
 - [Solo staking - Risks & rewards](getting-started/solo-staking-risks-rewards.md)
+- [Solo staking vs pooled staking](getting-started/pooled-staking.md)
+- [Deposit process](getting-started/deposit-process.md)
+- [Ready? Start staking!](getting-started/start-staking.md)
 
 ## 🚨 Help!
 
