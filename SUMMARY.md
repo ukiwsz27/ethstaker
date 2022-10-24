@@ -7,8 +7,8 @@
 ## 🚀 Getting Started
 
 - [What is Ethereum staking?](getting-started/what-is-ethereum-staking.md)
-- [Can I run a node without any ETH? (Yes!)](getting-started/ethereum-node.md)
-- [Solo staking - What are the risks/rewards?](getting-started/solo-staking-risks-rewards.md)
+- [Running a node without any ETH)](getting-started/ethereum-node.md)
+- [Solo staking - Risks & rewards](getting-started/solo-staking-risks-rewards.md)
 - [I have 32 ETH - Let's start staking!](tutorials/solo-staking-guides.md)
 - [I have less than 32 ETH - Can I still stake? (Yes!)](getting-started/pooled-staking.md)
 
@@ -43,5 +43,3 @@
 ## 📕 Tutorials
 
 - [Safely migrating validator keys](tutorials/validator-key-migration.md)
-- [FAQ Test](faq.md)
-- [test link](https://app.gitbook.com/s/Ie9CspVNxMOy8D1a3lBy/faq#withdrawals)
