@@ -291,12 +291,12 @@ The Validator has been malicious and will be slashed and kicked out of the syste
 The validator queue is a first-in-first-out queue for activating and exiting validators on the [Beacon Chain](#beacon-chain).
 
 - Until 327680 active validators in the network, 4 validators can be activated per [epoch](#epoch). For every (4 \* 16384) = **65536** active validators, the validator **activation rate** goes up by one.
-- 5 validators per epoch requires 327680 active validators which translates to 1125 validators per day.
-- 6 validators per epoch requires 393216 active validators which translates to 1350 validators per day.
-- 7 validators per epoch requires 458752 active validators which translates to 1575 validators per day.
-- 8 validators per epoch requires 524288 active validators which translates to 1800 validators per day.
-- 9 validators per epoch requires 589824 active validators which translates to 2025 validators per day.
-- 10 validators per epoch requires 655360 active validators which translates to 2200 validators per day.
+- 5 validators per epoch requires 327680 active validators, allowing 1125 validators per day.
+- 6 validators per epoch requires 393216 active validators, allowing 1350 validators per day.
+- 7 validators per epoch requires 458752 active validators, allowing 1575 validators per day.
+- 8 validators per epoch requires 524288 active validators, allowing 1800 validators per day.
+- 9 validators per epoch requires 589824 active validators, allowing 2025 validators per day.
+- 10 validators per epoch requires 655360 active validators, allowing 2200 validators per day.
 - Amount of activations scales with the amount of active validators and the limit is the active validator set divided by 64.
 
 Exiting validators works in the same way, with the amount of validators that can exit the Beacon Chain per day rate limited to preserve the stability of the network.
