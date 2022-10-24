@@ -6,7 +6,7 @@
 
 ## Getting started
 
-- [What is Ethereum staking?](what-is-eth-staking.md)
+- [What is Ethereum staking?](/getting-started/what-is-eth-staking.md)
 - [Solo staking - What are the risks/rewards?](solo-staking-risks-rewards.md)
 - [I have 32 ETH - Let's start staking!](start-staking.md)
 - [I don't have 32 ETH - Can I still stake? (TLDR - YES!)](pooled-staking.md)
