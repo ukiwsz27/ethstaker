@@ -46,6 +46,7 @@
     - [4. Slashing Validator](#4-slashing-validator)
     - [5. Exiting Validator](#5-exiting-validator)
 - [Validator queue](#validator-queue)
+- [Withdrawal address](#withdrawal-address)
 
 ---
 
@@ -294,3 +295,7 @@ The validator queue is a first-in-first-out queue for activating and exiting val
 - Amount of activations scales with the amount of active validators and the limit is the active validator set divided by 64.
 
 Exiting validators works in the same way, with the amount of validators that can exit the Beacon Chain per day rate limited to preserve the stability of the network.
+
+## Withdrawal address
+
+An address that can be optionally set when creating a validator key that will be used to withdraw staked ETH. If this address is not set at the time of key creation it can be set at the time of withdrawal instead. For more information on possible reasons for not setting the withdrawal address on key creation, [see our FAQ answer](faq.md#should-i-set-a-withdrawal-address-when-setting-up-my-solo-staking-validator).

@@ -12,7 +12,7 @@
 - [I have 32 ETH - Start staking!](tutorials/solo-staking-guides.md)
 - [Less than 32 ETH? - Start staking!](tutorials/pooled-staking.md)
 
-## Can I help with the EthStaker knowledge base?
+## Can I contribute to the EthStaker knowledge base?
 
 Yes! This is a living documentation site, which means we need help from the community to maintain and update the content. Any contribution, from writing whole sections, translations, to simply correcting spelling and grammar mistakes will be greatly appreciated.
 

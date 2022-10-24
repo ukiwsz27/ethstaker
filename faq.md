@@ -4,6 +4,7 @@
 - [I proposed a block! What did I earn?](#i-proposed-a-block-what-did-i-earn)
 - [What happens if I lose my validator keys?](#what-happens-if-i-lose-my-validator-keys)
 - [What happens if I lose my validator seed phrase / mnemonic?](#what-happens-if-i-lose-my-validator-seed-phrase--mnemonic)
+- [Should I set a withdrawal address when setting up my solo staking validator?](#should-i-set-a-withdrawal-address-when-setting-up-my-solo-staking-validator)
 
 ---
 
@@ -30,3 +31,9 @@ If there's a catastrophic failure of your validator and you lose your validator 
 ## What happens if I lose my validator seed phrase / mnemonic?
 
 If you lose your seed phrase, the one used to generate the validator keys, then unfortunately your ETH and stake is unrecoverable.
+
+## Should I set a withdrawal address when setting up my solo staking validator?
+
+Setting a withdrawal address when creating your validator keys can be useful as you won't need to set it again when withdrawals are enabled. However, there are some cases to be aware of that make it beneficial to **not** set a withdrawal address at the start:
+
+- If you plan to migrate your validator to a pool e.g. (Rocketpool) in the future, then you won't be able to perform this migration if you set a [withdrawal address](staking-glossary.md#withdrawal-address) when you created your validator. You would have to wait for withdrawals to be enabled, potentially wait in the withdrawal queue, then re-stake your ETH, potentially waiting in the activation queue as well!
