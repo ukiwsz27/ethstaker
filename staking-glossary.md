@@ -46,6 +46,7 @@
 - [Validator queue](#validator-queue)
 
 ---
+
 ## Attestation
 
 Votes by [validators](#validator) which confirm the validity of a [block](#block). At designated times, each validator is responsible for publishing different attestations that formally declare a validator's current view of the chain, including the last finalized [checkpoint](#checkpoints) and the current [head of the chain](#chain-head).
@@ -116,7 +117,7 @@ A group of at least 128 [validators](#validator) assigned to validate blocks in 
 
 The Deposit contract is the **gateway** to Ethereum [Proof of Stake (PoS)](#proof-of-stake-pos) and is managed **through a smart contract** on Ethereum. The smart contract accepts any transaction with a minimum amount of 1 ETH and a valid [input data](#input-data). Ethereum beacon-nodes listen to the deposit contract and use the input data to credit each validator.
 
-[_More info on the deposit contract ↗_](deposit-process.md)
+[_More info on the deposit contract ↗_](getting-started/deposit-process.md)
 
 ## Epoch
 
@@ -145,9 +146,9 @@ The validator has made a timely vote for the correct [head block](#chain-head).
 
 ## Input Data
 
-The Input data, also called the **deposit data**, is a user generated, 842 long sequence of characters. It represents the [validator public key](validator-keys.md) and the [withdrawal public key](validator-keys.md), which were signed with by the validator private key. The input data needs to be added to the transaction to the [deposit contract](deposit-process.md) in order to get identified by the [beacon-chain](#beacon-chain).
+The Input data, also called the **deposit data**, is a user generated, 842 long sequence of characters. It represents the [validator public key](validator-keys.md) and the [withdrawal public key](validator-keys.md), which were signed with by the validator private key. The input data needs to be added to the transaction to the [deposit contract](getting-started/deposit-process.md) in order to get identified by the [beacon-chain](#beacon-chain).
 
-[_More info about the deposit process ↗_](deposit-process.md)
+[_More info about the deposit process ↗_](getting-started/deposit-process.md)
 
 ## Justification
 
