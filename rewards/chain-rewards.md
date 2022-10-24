@@ -1,8 +1,8 @@
-# Chain Rewards
+# How to earn ETH
 
 Validators that participate in securing the beacon chain and execute "duties" get rewarded for this by new issuance of ETH. In addition, validators receive priority fees paid by users, and optionally MEV, Maximal Extractable Value.
 
-### Validator rewards
+## Validator rewards
 
 Validators have three duties: Attestations, once every epoch; block production, once every two months or so; sync committees, once every two-and-a-half years or so, on average. Block production and sync committees are randomly assigned, and the time between them therefore varies widely for any one validator.
 
@@ -12,13 +12,13 @@ If the validator is down and not executing its duties, it will be penalized at a
 
 Rewards will be able to be withdrawn sometime after merge, possibly with the first scheduled hardfork after, "Shanghai/Capella".
 
-### Priority fees
+## Priority fees
 
 Users of Ethereum set a [priority fee](https://ethereum.org/en/developers/docs/gas/#priority-fee) for their transactions. This fee is paid to block proposers and is immediately liquid. In order for that fee to be paid, a `--suggested-fee-recipient` needs to be configured. This is why eth-docker prompts for an Ethereum address to send priority fees to.
 
 This address could be a hardware wallet, a software wallet, or even a multi-sig contract.
 
-### MEV
+## MEV
 
 [MEV](https://ethereum.org/en/developers/docs/mev/), or "maximal extractable value", is a controversial topic. Node operators can extract MEV by accepting blocks built by "searchers", via a small side program called ["mev-boost"](https://ethresear.ch/t/mev-boost-merge-ready-flashbots-architecture/11177) by Flashbots. In this case, the CL ... Consensus Layer client such as Nimbus, Teku, \&c ... will, when asked to procure a block to propose, get blocks from MEV relays via mev-boost and from the EL ... Execution Layer client such as Besu, Geth, \&c ... and then choose whichever block from the relay pays best. The EL does not currently communicate its expected payout and would only be chosen when the relay offers no block. For this, the relay has to be trusted to deliver valid blocks.
 

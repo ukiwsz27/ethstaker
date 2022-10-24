@@ -46,7 +46,6 @@
 - [Validator queue](#validator-queue)
 
 ---
-
 ## Attestation
 
 Votes by [validators](#validator) which confirm the validity of a [block](#block). At designated times, each validator is responsible for publishing different attestations that formally declare a validator's current view of the chain, including the last finalized [checkpoint](#checkpoints) and the current [head of the chain](#chain-head).

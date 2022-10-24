@@ -1,3 +1,8 @@
-# FAQ
+# FAQ <!-- omit in toc -->
 
-FAQ TBD
+- [Withdrawals](#withdrawals)
+
+---
+## Withdrawals
+
+TODO
