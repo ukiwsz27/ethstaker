@@ -9,14 +9,11 @@
 - [What is Ethereum staking?](getting-started/what-is-ethereum-staking.md)
 - [Running a node without any ETH](getting-started/ethereum-node.md)
 - [Solo staking - Risks & rewards](getting-started/solo-staking-risks-rewards.md)
-- [I have 32 ETH - Start staking!](https://ethstaker.gitbook.io/ethstaker-knowledge-base/tutorials/solo-staking-guides)
-- [Less than 32 ETH? - Start staking!](getting-started/pooled-staking.md)
 
 ## 🚨 Help!
 
 - [Common errors and mistakes](help/common-errors-mistakes.md)
 - [My validator is offline! What do I do?](help/validator-offline.md)
-- [How to resync Geth after a failure](tutorials/resync-geth.md)
 - [I'm worried about downtime 😔](help/downtime-explained.md)
 
 ## 💰 Rewards
@@ -43,6 +40,5 @@
 ## 📕 Tutorials
 
 - [Solo staking guide](tutorials/solo-staking-guides.md)
+- [How to resync Geth after a failure](tutorials/resync-geth.md)
 - [Safely migrating validator keys](tutorials/validator-key-migration.md)
-- <a href="https://google.com/">Google</a>
-- <a href="tutorials/validator-key-migration.md">migration test</a>

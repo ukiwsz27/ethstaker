@@ -9,8 +9,8 @@
 - [What is Ethereum staking?](getting-started/what-is-ethereum-staking.md)
 - [Running a node without any ETH](getting-started/ethereum-node.md)
 - [Solo staking - Risks & rewards](getting-started/solo-staking-risks-rewards.md)
-- [I have 32 ETH - Let's start staking!](tutorials/solo-staking-guides.md)
-- [I have less than 32 ETH - Can I still stake? (Yes!)](getting-started/pooled-staking.md)
+- [I have 32 ETH - Start staking!](tutorials/solo-staking-guides.md)
+- [Less than 32 ETH? - Start staking!](tutorials/pooled-staking.md)
 
 ## Can I help with the EthStaker knowledge base?
 

@@ -1,3 +1,5 @@
 # Common Errors and Mistakes
 
-TODO
+## Geth is throwing errors and not syncing
+
+- [Resync Geth](../tutorials/resync-geth.md)
