@@ -13,17 +13,24 @@
 - [Chain head](#chain-head)
 - [Checkpoints](#checkpoints)
 - [Committees](#committees)
+- [Consensus layer](#consensus-layer)
 - [Deposit contract](#deposit-contract)
+- [Effectiveness](#effectiveness)
 - [Epoch](#epoch)
+- [Execution layer](#execution-layer)
 - [Finalization](#finalization)
   - [Finality issues](#finality-issues)
 - [Fork](#fork)
 - [Head vote](#head-vote)
 - [Inactivity leak](#inactivity-leak)
-- [Input Data](#input-data)
+- [Input data](#input-data)
 - [Justification](#justification)
 - [Light clients](#light-clients)
+- [MEV](#mev)
+- [Mempool](#mempool)
 - [Participation rate](#participation-rate)
+- [Peers](#peers)
+- [Priority fees](#priority-fees)
 - [Proof of stake (PoS)](#proof-of-stake-pos)
 - [Signing](#signing)
 - [Slashable offenses](#slashable-offenses)
@@ -32,25 +39,26 @@
 - [Slasher node](#slasher-node)
 - [Slot](#slot)
 - [Source vote](#source-vote)
-- [Staking Deposit CLI](#staking-deposit-cli)
+- [Staking deposit CLI](#staking-deposit-cli)
+- [Suggested fee recipient](#suggested-fee-recipient)
 - [Sync committee](#sync-committee)
 - [Target vote](#target-vote)
 - [Validator](#validator)
   - [Eligible for activation & Estimated activation](#eligible-for-activation--estimated-activation)
   - [Unique index](#unique-index)
   - [Current balance & Effective balance](#current-balance--effective-balance)
-- [Validator Seed Phrase / Mnemonic](#validator-seed-phrase--mnemonic)
 - [Validator lifecycle](#validator-lifecycle)
     - [1. Deposited](#1-deposited)
     - [2. Pending](#2-pending)
-    - [3. Active Validator](#3-active-validator)
-    - [4. Slashing Validator](#4-slashing-validator)
-    - [5. Exiting Validator](#5-exiting-validator)
+    - [3. Active validator](#3-active-validator)
+    - [4. Slashing validator](#4-slashing-validator)
+    - [5. Exiting validator](#5-exiting-validator)
+- [Validator pool](#validator-pool)
 - [Validator queue](#validator-queue)
+- [Validator seed phrase / mnemonic](#validator-seed-phrase--mnemonic)
 - [Withdrawal address](#withdrawal-address)
 
 ---
-
 ## Attestation
 
 Votes by [validators](#validator) which confirm the validity of a [block](#block). At designated times, each validator is responsible for publishing different attestations that formally declare a validator's current view of the chain, including the last finalized [checkpoint](#checkpoints) and the current [head of the chain](#chain-head).
@@ -117,16 +125,28 @@ The [Beacon Chain](#beacon-chain) has a tempo divided into [slots](#slot) (12 se
 
 A group of at least 128 [validators](#validator) assigned to validate blocks in each [slot](#slot). One of the validators in the committee is the aggregator, responsible for aggregating the signatures of all other validators in the committee that agree on an attestation. Not to be confused with [sync committees](#sync-committee).
 
+## Consensus layer
+
+TODO
+
 ## Deposit contract
 
 The Deposit contract is the **gateway** to Ethereum [Proof of Stake (PoS)](#proof-of-stake-pos) and is managed **through a smart contract** on Ethereum. The smart contract accepts any transaction with a minimum amount of 1 ETH and a valid [input data](#input-data). Ethereum beacon-nodes listen to the deposit contract and use the input data to credit each validator.
 
 [_More info on the deposit contract ↗_](getting-started/deposit-process.md)
 
+## Effectiveness
+
+The average time it takes for a validator's attestations to be included in the chain.
+
 ## Epoch
 
 **1 Epoch = 32 [Slots](#slot)**  
 Represents the number of 32 slots (12 seconds) and takes approximately **6.4 minutes.** Epochs play an important role when it comes to the [validator queue](#validator-queue) and [finality](#finalization).
+
+## Execution layer
+
+TODO
 
 ## Finalization
 
@@ -152,7 +172,7 @@ The validator has made a timely vote for the correct [head block](#chain-head).
 
 If the Beacon Chain has gone more than four [epochs](#epoch) without [finalizing](#finalization), an emergency protocol called the "inactivity leak" is activated. The ultimate aim of the inactivity leak is to create the conditions required for the chain to recover finality. Finality requires a 2/3 majority of the total staked ether to agree on source and target checkpoints. If validators representing more than 1/3 of the total validators go offline or fail to submit correct [attestations](#attestation) then it is not possible for a 2/3 supermajority to finalize checkpoints. The inactivity leak lets the stake belonging to the inactive validators gradually bleed away until they control less than 1/3 of the total stake, allowing the remaining active validators finalize the chain. However large the pool of inactive validators, the remaining active validators will eventually control >2/3 of the stake. The loss of stake is a strong incentive for inactive validators to reactivate as soon as possible!
 
-## Input Data
+## Input data
 
 The Input data, also called the **deposit data**, is a user generated, 842 long sequence of characters. It represents the [validator public key](validator-keys.md) and the [withdrawal public key](validator-keys.md), which were signed with by the validator private key. The input data needs to be added to the transaction to the [deposit contract](getting-started/deposit-process.md) in order to get identified by the [beacon-chain](#beacon-chain).
 
@@ -170,9 +190,29 @@ When another block is justified on top of a justified block, it is upgraded to "
 
 An Ethereum client that does not store a local copy of the blockchain, or validate blocks and transactions. It offers the functions of a wallet and can create and broadcast transactions.
 
+## MEV
+
+MEV or "maximal extractable value", is a controversial topic. Node operators can extract MEV by accepting blocks built by "searchers", via a small side program called "[mev-boost ↗](https://ethresear.ch/t/mev-boost-merge-ready-flashbots-architecture/11177)" by Flashbots. In this case, the Consensus Layer client such as Nimbus, Teku, etc. will, when asked to procure a block to propose, get blocks from MEV relays via mev-boost and from the Execution Layer client such as Besu, Geth, etc. and then choose whichever block from the relay pays best. The Execution Layer does not currently communicate its expected payout and would only be chosen when the relay offers no block. For this, the relay has to be trusted to deliver valid blocks.
+
+Rewards from MEV are paid to the same [suggested fee recipient](#suggested-fee-recipient) address as [priority fees](#priority-fees).
+
+[Source ↗](https://ethereum.org/en/developers/docs/mev/)
+
+## Mempool
+
+TODO
+
 ## Participation rate
 
 TODO
+
+## Peers
+
+Other nodes running Ethereum clients that connect to each other over a peer-to-peer network. Communication between peers is how the Ethereum network remains decentralized as there is no single point of failure.
+
+## Priority fees
+
+Almost all transaction on Ethereum set a [priority fee ↗](https://ethereum.org/en/developers/docs/gas/#priority-fee) to incentivize [block proposers](#block-proposer) to include the transaction as a higher priority than others. The higher the fee relative to other transactions currently waiting in the [mempool](#mempool) This fee is paid to the block proposer. All of the priority fees in a block are aggregated and paid in a single state change directly to the [suggested fee recipient](#suggested-fee-recipient) set by the block proposer. This address could be a hardware wallet, a software wallet, or even a multi-sig contract.
 
 ## Proof of stake (PoS)
 
@@ -212,7 +252,11 @@ A time period of **12 seconds** in which a randomly chosen validator has time to
 
 The validator has made a timely vote for the correct source [checkpoint](#checkpoint).
 
-## Staking Deposit CLI
+## Staking deposit CLI
+
+TODO
+
+## Suggested fee recipient
 
 TODO
 
@@ -248,10 +292,6 @@ Here are examples on how the effective balance changes:
 - If the Current balance dropped from 22 ETH to 21.76 ETH – Effective balance will be **22.00 ETH**.
 - If the Current balance increases to 22.25 **and** the effective balance is 21 ETH, the effective balance will increase to 22 ETH.
 
-## Validator Seed Phrase / Mnemonic
-
-The Seed Phrase or Mnemonic is a set of words (usually 12, 18 or 24 words long) used to generate your validator keys. Your mnemonic is the backup for your validator keys and will be the ONLY way to withdraw your ETH when the time comes and no one can help you recover your mnemonic if you lose it.
-
 ## Validator lifecycle
 
 #### 1. Deposited
@@ -264,7 +304,7 @@ Waiting for activation on the [Beacon Chain](#beacon-chain).
 
 Before validators enter the [validator queue](#validator-queue), they need to be voted in by other active validators. This occurs every 4 hours.
 
-#### 3. Active Validator
+#### 3. Active validator
 
 Currently attesting and proposing blocks.
 
@@ -274,17 +314,21 @@ The validator will stay active until:
 - Voluntary exit.
 - It gets slashed.
 
-#### 4. Slashing Validator
+#### 4. Slashing validator
 
 The Validator has been malicious and will be slashed and kicked out of the system.
 
 > A _**Penalty**_ is a negative reward (e.g. for going offline).  
 > A _**Slashing**_ is a large penalty (≥ 1/32 of balance at stake) and a forceful exit ... **. - Justin Drake**
 
-#### 5. Exiting Validator
+#### 5. Exiting validator
 
 - **Ejected**: The validator balance fell below a threshold and was kicked out by the network.
 - **Exited**: Voluntary exit, the withdrawal key holder has the ability to **withdraw** the current balance of the corresponding validator balance.
+
+## Validator pool
+
+The number of currently active validators securing the Ethereum network. The current validator pool can be seen [here ↗](https://beaconcha.in/validators).
 
 ## Validator queue
 
@@ -300,6 +344,10 @@ The validator queue is a first-in-first-out queue for activating and exiting val
 - Amount of activations scales with the amount of active validators and the limit is the active validator set divided by 64.
 
 Exiting validators works in the same way, with the amount of validators that can exit the Beacon Chain per day rate limited to preserve the stability of the network.
+
+## Validator seed phrase / mnemonic
+
+The Seed Phrase or Mnemonic is a set of words (usually 12, 18 or 24 words long) used to generate your validator keys. Your mnemonic is the backup for your validator keys and will be the ONLY way to withdraw your ETH when the time comes and no one can help you recover your mnemonic if you lose it.
 
 ## Withdrawal address
 

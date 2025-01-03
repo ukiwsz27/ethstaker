@@ -1,12 +1,20 @@
 # FAQ <!-- omit in toc -->
 
+- [Can I be slashed for being offline?](#can-i-be-slashed-for-being-offline)
 - [Can I withdraw my ETH at any time?](#can-i-withdraw-my-eth-at-any-time)
 - [I proposed a block! What did I earn?](#i-proposed-a-block-what-did-i-earn)
+- [Is there a penalty for missing a block proposal?](#is-there-a-penalty-for-missing-a-block-proposal)
+- [Is there a penalty for missing an attestation?](#is-there-a-penalty-for-missing-an-attestation)
 - [Should I set a withdrawal address when setting up my solo staking validator?](#should-i-set-a-withdrawal-address-when-setting-up-my-solo-staking-validator)
 - [What happens if I lose my validator keys?](#what-happens-if-i-lose-my-validator-keys)
 - [What happens if I lose my validator seed phrase / mnemonic?](#what-happens-if-i-lose-my-validator-seed-phrase--mnemonic)
+- [What if I want to stop staking?](#what-if-i-want-to-stop-staking)
 
 ---
+
+## Can I be slashed for being offline?
+
+No. Realistically, the only condition that can cause a [slashing event](staking-glossary.md#slashable-offenses) is if you run your validator's keys on two nodes at the same time (such as a failover / redundancy setup, where your backup node accidentally turns on while your main node is still running). Don't let this happen, and you won't get slashed. **Slashing cannot occur from being offline for maintenance**.
 
 ## Can I withdraw my ETH at any time?
 
@@ -22,9 +30,17 @@ Validators that participate in securing the [beacon chain](staking-glossary.md#b
 
 See a detailed explanation here: [How does my validator earn ETH?](rewards/chain-rewards.md)
 
+## Is there a penalty for missing a block proposal?
+
+No. If you miss your block proposal, the [slot](staking-glossary.md#slot) that should have contained your block will be empty. Other than the lost [rewards](rewards/chain-rewards.md) from missing the block proposal, there are **no penalties or slashing** that occurs from a missed block proposal.
+
+## Is there a penalty for missing an attestation?
+
+Missing some [attestations](../staking-glossary.md#attestation) is completely normal and extremely low-cost. The penalty for missing an attestation is exactly the same as the reward for a successful one. So, with around 240 attestations per day per validator, missing one or two is still a successful attestation rate of over 99%!
+
 ## Should I set a withdrawal address when setting up my solo staking validator?
 
-Setting a withdrawal address when creating your validator keys can be useful as you won't need to set it again when withdrawals are enabled.
+Setting a [withdrawal address](staking-glossary.md#withdrawal-address) when creating your validator keys can be useful as you won't need to set it again when withdrawals are enabled.
 
 The [Staking Deposit CLI](staking-glossary.md#staking-deposit-cli) can set a withdrawal address during deposit json creation. If a user opts not to do this - usually simply by omission - then it sets the hash of the withdrawal pub key instead. Sometime in the future - possibly with Shanghai/Capella hard fork - there will be a tool that takes the mnemonic and signs a message to effect a one-time change from v0 credentials - withdrawal key - to v1 credentials: Withdrawal address.
 
@@ -52,3 +68,7 @@ If there's a catastrophic failure of your validator and you lose your validator 
 If you lose your seed phrase, the one used to generate the validator keys, then unfortunately your staked ETH is most likely unrecoverable.
 
 However, if you had set a withdrawal address, then the validator keys are enough to sign a voluntary-exit, which causes a withdrawal to that address. There is also a special case if you have a pre-signed voluntary-exit message, but that's likely only used by staking services and only noted here for completeness.
+
+## What if I want to stop staking?
+
+In the event that you can't recover your validator or you decide you want to stop staking, you have the option to exit your validator. Even though withdrawals are not currently enabled, you can still exit your validator from the network. This means that, while you won't be able to get your validator balance back right away (until withdrawals are enabled), you won't receive any penalties for being offline once the validator exits the [withdrawal queue](staking-glossary.md#validator-queue). Exiting a validator is currently a one way process. For details on how to exit your validator, [check out our guide](tutorials/how-to-exit-a-validator.md).

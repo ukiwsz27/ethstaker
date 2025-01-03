@@ -1,25 +1,45 @@
-# How to earn ETH
+# How does my validator earn ETH?
 
-Validators that participate in securing the beacon chain and execute "duties" get rewarded for this by new issuance of ETH. In addition, validators receive priority fees paid by users, and optionally MEV, Maximal Extractable Value.
+Validators that participate in securing the [Beacon Chain](../staking-glossary.md#beacon-chain) and execute "duties" get rewarded for this by new issuance of ETH. In addition, validators receive priority fees paid by users, and optionally [MEV](../staking-glossary.md#MEV). Validators are rewarded for executing those duties by new ETH issuance to the "validator balance". The current APY can be seen on the [official launchpad ↗](https://launchpad.ethereum.org/).
 
-## Validator rewards
+| Type                                                    | Layer                                               | Frequency                                                                                  | Amount                                        |
+| ------------------------------------------------------- | --------------------------------------------------- | ------------------------------------------------------------------------------------------ | --------------------------------------------- |
+| [Attestation](../staking-glossary.md#attestation)       | [Consensus](../staking-glossary.md#consensus-layer) | Once per [Epoch](../staking-glossary.md#epoch) (every 6.4 minutes on average)              | 0.000014 ETH\*                                |
+| [Block Proposal](../staking-glossary.md#block-proposer) | [Consensus](../staking-glossary.md#consensus-layer) | [Every 2 months on average](proposal-frequency.md)                                         | 0.02403 ETH\*                                 |
+| [Sync Committee](../staking-glossary.md#sync-committee) | [Consensus](../staking-glossary.md#consensus-layer) | Every 2 years on average\*\*                                                               | 0.11008 ETH\*                                 |
+| [Slashing Reward](../staking-glossary.md#slasher-node)  | [Consensus](../staking-glossary.md#consensus-layer) | Very rarely included in Block Proposals                                                    | Up to 0.0625 ETH                              |
+| [Priority Fees](../staking-glossary.md#priority-fees)   | [Execution](../staking-glossary.md#execution-layer) | Included in every Block Proposal containing transactions                                   | Typically 0.01 to 0.1 ETH; very rarely 1+ ETH |
+| [MEV Rewards](../staking-glossary.md#mev)               | [Execution](../staking-glossary.md#execution-layer) | Also included in Block Proposals when using [MEV-boost](../validator-clients/mev-boost.md) | Typically 0.01 to 0.1 ETH; very rarely 1+ ETH |
 
-Validators have three duties: Attestations, once every epoch; block production, once every two months or so; sync committees, once every two-and-a-half years or so, on average. Block production and sync committees are randomly assigned, and the time between them therefore varies widely for any one validator.
+\*_Varies based on the total number of validators in the network. Estimate shown approximated for 435,000 active validators._
 
-They are rewarded for executing those duties by new ETH issuance to the "validator balance". The current APY can be seen on the [official launchpad](https://launchpad.ethereum.org/).
+\*\*_These are subject to randomness; there can be "dry spells" multiple times longer than the average without being given one._
 
-If the validator is down and not executing its duties, it will be penalized at a rate slightly lower than the rewards for the same period of time.
+Rewards provided on the [Consensus](../staking-glossary.md#consensus-layer) are not currently liquid. They are locked on the chain until [withdrawals](../faq.md#can-i-withdraw-my-eth-at-any-time) have been implemented. Rewards provided on the [Execution](../staking-glossary.md#execution-layer), however, are liquid and can be accessed instantly.
 
-Rewards will be able to be withdrawn sometime after merge, possibly with the first scheduled hardfork after, "Shanghai/Capella".
+[Source ↗](https://docs.rocketpool.net/guides/node/responsibilities.html#how-ethereum-staking-works)
 
-## Priority fees
+## Validator penalties
 
-Users of Ethereum set a [priority fee](https://ethereum.org/en/developers/docs/gas/#priority-fee) for their transactions. This fee is paid to block proposers and is immediately liquid. In order for that fee to be paid, a `--suggested-fee-recipient` needs to be configured. This is why eth-docker prompts for an Ethereum address to send priority fees to.
+If the validator is offline and not executing its duties, it will be penalized at a rate slightly lower than the rewards for the same period of time.
 
-This address could be a hardware wallet, a software wallet, or even a multi-sig contract.
+Validators are penalized for small amounts of ETH if they are offline and fail to perform their assigned duties. This is called [**leaking**](../staking-glossary.md#inactivity-leak). If a validator violates one of the core rules of the Beacon chain and appears to be attacking the network, it may get **[slashed](../staking-glossary.md#slashable-offenses)**. Slashing is a forceful exit of your validator without your permission, accompanied by a relatively large fine that removes some of your validator's ETH balance.
 
-## MEV
+Realistically, the only condition that can cause a slashing is if you run your validator's keys on two nodes at the same time (such as a failover / redundancy setup, where your backup node accidentally turns on while your main node is still running). Don't let this happen, and **you won't get slashed**. Slashing _cannot occur_ from being offline for maintenance.
 
-[MEV](https://ethereum.org/en/developers/docs/mev/), or "maximal extractable value", is a controversial topic. Node operators can extract MEV by accepting blocks built by "searchers", via a small side program called ["mev-boost"](https://ethresear.ch/t/mev-boost-merge-ready-flashbots-architecture/11177) by Flashbots. In this case, the CL ... Consensus Layer client such as Nimbus, Teku, \&c ... will, when asked to procure a block to propose, get blocks from MEV relays via mev-boost and from the EL ... Execution Layer client such as Besu, Geth, \&c ... and then choose whichever block from the relay pays best. The EL does not currently communicate its expected payout and would only be chosen when the relay offers no block. For this, the relay has to be trusted to deliver valid blocks.
+Below is a table that shows the penalties that can happen to a validator:
 
-Rewards from MEV are paid to the same `--suggested-fee-recipient` address that priority fees go to.
+| Type                                                           | Layer                                               | Amount                                                                            |
+| -------------------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------------------------------------- |
+| Missed [Attestation](../staking-glossary.md#attestation)       | [Consensus](../staking-glossary.md#consensus-layer) | -0.000011 ETH\* per attestation (-9/10 the value of a normal attestation reward)  |
+| Missed [Block Proposal](../staking-glossary.md#block-proposer) | [Consensus](../staking-glossary.md#consensus-layer) | 0                                                                                 |
+| Missed [Sync Committee](../staking-glossary.md#sync-committee) | [Consensus](../staking-glossary.md#consensus-layer) | -0.00047 ETH\* per epoch (-0.1 ETH total if offline for the whole sync committee) |
+| [Slashing](../staking-glossary.md#slashable-offenses)          | [Consensus](../staking-glossary.md#consensus-layer) | At least 1/32 of your balance, up to your entire balance in extreme circumstances |
+
+\*_Varies based on the total number of validators in the network. Estimate shown approximated for 435,000 active validators._
+
+{% hint style="info" %}
+As a rule of thumb, if you're offline for X hours (and you aren't in a [sync committee](../staking-glossary.md#sync-committee)), then you'll make all of your leaked ETH back after X hours once you're back online and attesting.
+{% endhint %}
+
+[Source ↗](https://docs.rocketpool.net/guides/node/responsibilities.html#penalties)

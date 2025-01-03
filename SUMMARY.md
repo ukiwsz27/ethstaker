@@ -2,7 +2,7 @@
 
 - [EthStaker knowledge base](README.md)
 - [Staking glossary](staking-glossary.md)
-- [FAQ](faq.md)
+- [Staking FAQ](faq.md)
 
 ## 🚀 Getting Started
 
@@ -15,10 +15,11 @@
 
 ## 🚨 Help!
 
-- [Common errors and mistakes](help/common-errors-mistakes.md)
 - [My validator is offline! What do I do?](help/validator-offline.md)
+- [Missed attestations! What can I do?](help/missed-attestations.md)
 - [I'm worried about downtime 😔](help/downtime-explained.md)
 - [I'm worried about slashing 🔪](help/slashing-explained.md)
+- [Common errors and mistakes](help/common-errors-mistakes.md)
 
 ## 💰 Rewards
 
@@ -35,15 +36,23 @@
 - [Validator clients explained](validator-clients/validator-clients-explained.md)
 - [Execution clients](validator-clients/execution-clients.md)
 - [Consensus clients](validator-clients/consensus-clients.md)
+- [Checkpoint sync](validator-clients/checkpoint-sync.md)
 - [MEV boost](validator-clients/mev-boost.md)
 
 ## 🔑 Validator Keys
 
 - [Secure key generation](validator-keys/secure-key-generation.md)
 - [Key management](validator-keys/key-management.md)
+- [Slashing protection](validator-keys/slashing-protection.md)
 
 ## 📕 Tutorials
 
-- [Solo staking guide](tutorials/solo-staking-guides.md)
-- [How to resync Geth after a failure](tutorials/resync-geth.md)
+- [Solo staking guides](tutorials/solo-staking-guides.md)
+- [Configuring an RPC endpoint](tutorials/rpc-endpoint.md)
+- [How to resync Geth](tutorials/resync-geth.md)
 - [Safely migrating validator keys](tutorials/validator-key-migration.md)
+- [How to exit a validator](tutorials/how-to-exit-a-validator.md)
+
+## ✏️ Get Involved
+
+- [How to contribute](how-to-contribute.md)

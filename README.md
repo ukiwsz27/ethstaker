@@ -1,8 +1,15 @@
 # EthStaker knowledge base
 
+> "Welcoming First, Knowledgeable Second"
+
 ## Welcome to the EthStaker Knowledge base!
 
-> A public, unbiased, open source collection of useful information and concepts about Ethereum staking.
+An unbiased, open source collection of useful information and concepts about Ethereum staking. If you're looking to get started staking on Ethereum or simply to learn more about how the network is secured through Proof of Stake (PoS) validators, you've come to the right place!
+
+## Useful Links
+
+- [Staking glossary](staking-glossary.md)
+- [Staking FAQ](faq.md)
 
 ## Getting started
 
